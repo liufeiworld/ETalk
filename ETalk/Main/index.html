@@ -1,0 +1,148 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>bridge页面</title>
+		<meta charset="utf-8" />
+		
+		<script>
+			//写js代码
+			
+			/*
+			 添加监听事件，需要3个参数
+			 1.需要监听的事件名字
+			 2.当监听到事件的时候会调用的方法
+			 3.false
+			 * */
+			document.addEventListener(
+				'WebViewJavascriptBridgeReady',
+				bridgeReady,
+				false
+			);
+            var bridge=null;
+			function bridgeReady(event){
+				//得到bridge对象
+				bridge = event.bridge;
+				
+				//初始化bridge对象
+				bridge.init(
+					function (data, callBack){
+						alert(data);
+						callBack("接收到了iOS的消息");
+					}
+
+				);
+				
+				//执行到这一步，bridge的环境就准备好了
+				alert("bridge ready");
+
+				
+				//在这之后，才能操作bridge
+				
+				//给bridge注册方法
+				bridge.registerHandler(
+					"jsMethod",//js方法名
+					//js方法内容
+					function (data, callBack){
+						//data:iOS调用方法时传入的参数
+						alert(data);
+						callBack("haha~~~");//回调方法
+					}
+					
+					
+				);
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				//给按钮动态添加事件
+				//var sendBtn = document.getElementById("sendBtn");
+				//sendBtn.onclick = function (e){
+					//给iOS发送消息
+					/*
+					 需要两个参数
+					 参数1:发送消息的内容，可以是字符串，数组，字典（json格式的数据）
+					 参数2:发送消息给iOS成功后，提供给iOS的回调方法
+					 * */
+<!--					bridge.send(-->
+<!--						"js发送的消息",-->
+<!--						function (response){-->
+<!--							alert(response);-->
+<!--							console.log(obj);-->
+<!--						}-->
+<!--					);-->
+				//}
+				
+				
+				//var callBtn = document.getElementById("callBtn");
+				//callBtn.onclick = function (e){
+					//调用iOS的名为iosMethod的方法
+<!--					bridge.callHandler(-->
+<!--						//需要3个参数-->
+<!--						//1.需要调用iOS的方法名字-->
+<!--						'classInvitation',-->
+<!--						//2.调用方法是传入的参数-->
+<!--						{"hello":"world"},//["1", "2"]-->
+<!--						//提供给iOS调用的方法-->
+<!--						function (response){-->
+<!--							alert(response.one);-->
+<!--						}-->
+<!--					);-->
+				//}
+				
+				
+				
+				//bridge.registerHandler( );
+				
+				
+				
+				
+				
+			}
+			
+            function callBtn(){
+                bridge.callHandler(
+                                   //需要3个参数
+                                   //1.需要调用iOS的方法名字
+                                   'classInvitation',
+                                   //2.调用方法是传入的参数
+                                   {"hello":"world"},//["1", "2"]
+                                   //提供给iOS调用的方法
+                                   function (response){
+                                   alert(response.one);
+                                   }
+                                   );
+
+            }
+
+			
+			
+			
+		</script>
+		
+	</head>
+	
+	<body>
+		<br />
+		<button id="sendBtn">给iOS发送消息</button><br />
+		<button id="callBtn" onclick="callBtn()">调用iOS中的方法</button>
+		
+	</body>
+	
+	
+	
+	
+</html>
+
+
+
+
+
+
+

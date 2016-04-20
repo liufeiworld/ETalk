@@ -2,8 +2,8 @@
 //  AppDelegate.h
 //  ETalk
 //
-//  Created by Neil's Mac Mini on 15/2/5.
-//  Copyright (c) 2015年 Neil's Mac Mini. All rights reserved.
+//  Created by Neil on 15/2/5.
+//  Copyright (c) 2015年 深圳市易课文化科技有限公司. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

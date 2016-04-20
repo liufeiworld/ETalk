@@ -1,0 +1,38 @@
+//
+//  ETalk-Prefix.pch
+//  ETalk
+//
+//  Created by Neil on 15/4/6.
+//  Copyright (c) 2015年 深圳市易课文化科技有限公司. All rights reserved.
+//
+
+#ifndef ETalk_ETalk_Prefix_pch
+#define ETalk_ETalk_Prefix_pch
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#import "MacroDefinition.h"
+#import "HTTPMacro.h"
+#import "Common.h"
+#import "MyHeaderUrl.h"
+#import "Definition.h"
+#import "UIImageView+WebCache.h"
+#import "AFNetworking.h"
+#import "UserSingleton.h"
+#import "UserSingle.h"
+#import "VariousWebHeaderFiles.h"
+#import "UIViewController+BackButton.h"
+
+#endif
+
+#endif
+
+
